@@ -47,7 +47,6 @@ namespace PistollegroWPF
 			var offers = service.GetAllOffers(null);
 			foreach(var offer in offers)
 				CompanyOffers.Items.Add(new WeaponOfferPresenter(offer));
-				
 		}
 
 		private void CompanyOffers_SelectionChanged(object sender, SelectionChangedEventArgs e)
