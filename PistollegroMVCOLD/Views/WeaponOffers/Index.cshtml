@@ -1,0 +1,71 @@
+﻿@model IEnumerable<PistollegroMVC.PistollegroWCF.WeaponOfferMV >
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<p>
+    @if (Request.IsAuthenticated) { 
+    @Html.ActionLink("Create New", "Create")
+    }
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Picture
+        </th>
+        <th>
+            Price
+        </th>
+        <th>
+            Name
+        </th>
+        <th>
+            Description
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @if (item.HasPicture)
+            {
+                <a href="~/@(ViewBag.picturesDirectory)/@(item.ID).png" >
+                <img src="~/@(ViewBag.picturesDirectory)/@(item.ID)@(ViewBag.thumbmailSuffix).png" />
+                </a>
+            }
+            else
+            {
+                <img src="~/@(ViewBag.picturesDirectory)/@(ViewBag.defaultPicture)" />
+            }
+        </td>
+        <td>@if (Request.IsAuthenticated)
+            {
+                if (User.Identity.Name.Equals(item.OrganizationName)) 
+                { 
+                    @Html.DisplayFor(modelItem => item.Price)
+        }
+        }
+          
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>@if (Request.IsAuthenticated)
+            {
+                if (User.Identity.Name.Equals(item.OrganizationName))
+                {
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID })
+          <text> | </text>
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+            }
+            }
+        </td>
+    </tr>
+}
+
+</table>

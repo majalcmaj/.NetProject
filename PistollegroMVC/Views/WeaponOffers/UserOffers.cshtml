@@ -1,0 +1,66 @@
+﻿@model IEnumerable<PistollegroMVC.PistollegroWCF.WeaponOfferMV>
+
+@{
+    ViewBag.Title = "Index";
+}
+@if (Request.IsAuthenticated)
+{
+    @Html.ActionLink("Create New", "Create")
+}
+<table class="table">
+    <tr>
+        <th>
+            Picture
+        </th>
+        <th>
+            @Html.ActionLink("Price", "UserOffers", new { sortOrder = ViewBag.PriceSortParam })
+        </th>
+        <th>
+
+            @Html.ActionLink("Name", "UserOffers", new { sortOrder = ViewBag.NameSortParam })
+        </th>
+        <th>
+            @Html.ActionLink("Decription", "UserOffers", new { sortOrder = ViewBag.DescriptionSortParam })
+        </th>
+        <th>
+            @Html.ActionLink("Category", "UserOffers", new { sortOrder = ViewBag.CategorySortParam })
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @if (item.HasPicture)
+                {
+                    <a href="~/@(ViewBag.picturesDirectory)/@(item.ID).png">
+                        <img src="~/@(ViewBag.picturesDirectory)/@(item.ID)@(ViewBag.thumbmailSuffix).png" />
+                    </a>
+                }
+                else
+                {
+                    <img src="~/@(ViewBag.picturesDirectory)/@(ViewBag.defaultPicture)" />
+                }
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CategoryName)
+            </td>
+
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+            </td>
+        </tr>
+    }
+
+</table>

@@ -1,0 +1,287 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="DbConnectionService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import namespace="http://tempuri.org/" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/PistollegroWCF" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IDbConnectionService_loginOperation_InputMessage">
+    <wsdl:part name="parameters" element="tns:loginOperation" />
+  </wsdl:message>
+  <wsdl:message name="IDbConnectionService_loginOperation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:loginOperationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDbConnectionService_changePassword_InputMessage">
+    <wsdl:part name="parameters" element="tns:changePassword" />
+  </wsdl:message>
+  <wsdl:message name="IDbConnectionService_changePassword_OutputMessage">
+    <wsdl:part name="parameters" element="tns:changePasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDbConnectionService_registerCompany_InputMessage">
+    <wsdl:part name="parameters" element="tns:registerCompany" />
+  </wsdl:message>
+  <wsdl:message name="IDbConnectionService_registerCompany_OutputMessage">
+    <wsdl:part name="parameters" element="tns:registerCompanyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDbConnectionService_getCompany_InputMessage">
+    <wsdl:part name="parameters" element="tns:getCompany" />
+  </wsdl:message>
+  <wsdl:message name="IDbConnectionService_getCompany_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getCompanyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDbConnectionService_getCompanies_InputMessage">
+    <wsdl:part name="parameters" element="tns:getCompanies" />
+  </wsdl:message>
+  <wsdl:message name="IDbConnectionService_getCompanies_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getCompaniesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDbConnectionService_GetCategories_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCategories" />
+  </wsdl:message>
+  <wsdl:message name="IDbConnectionService_GetCategories_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCategoriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDbConnectionService_GetAllOffers_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllOffers" />
+  </wsdl:message>
+  <wsdl:message name="IDbConnectionService_GetAllOffers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllOffersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDbConnectionService_GetOffersOfCategories_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetOffersOfCategories" />
+  </wsdl:message>
+  <wsdl:message name="IDbConnectionService_GetOffersOfCategories_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetOffersOfCategoriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDbConnectionService_GetOffersOfCompany_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetOffersOfCompany" />
+  </wsdl:message>
+  <wsdl:message name="IDbConnectionService_GetOffersOfCompany_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetOffersOfCompanyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDbConnectionService_GetOffer_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetOffer" />
+  </wsdl:message>
+  <wsdl:message name="IDbConnectionService_GetOffer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetOfferResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDbConnectionService_AddOffer_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddOffer" />
+  </wsdl:message>
+  <wsdl:message name="IDbConnectionService_AddOffer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddOfferResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDbConnectionService_UpdateOffer_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateOffer" />
+  </wsdl:message>
+  <wsdl:message name="IDbConnectionService_UpdateOffer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateOfferResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDbConnectionService_DeleteOffer_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteOffer" />
+  </wsdl:message>
+  <wsdl:message name="IDbConnectionService_DeleteOffer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteOfferResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDbConnectionService_DeleteOfferById_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteOfferById" />
+  </wsdl:message>
+  <wsdl:message name="IDbConnectionService_DeleteOfferById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteOfferByIdResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IDbConnectionService">
+    <wsdl:operation name="loginOperation">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDbConnectionService/loginOperation" message="tns:IDbConnectionService_loginOperation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDbConnectionService/loginOperationResponse" message="tns:IDbConnectionService_loginOperation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="changePassword">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDbConnectionService/changePassword" message="tns:IDbConnectionService_changePassword_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDbConnectionService/changePasswordResponse" message="tns:IDbConnectionService_changePassword_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="registerCompany">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDbConnectionService/registerCompany" message="tns:IDbConnectionService_registerCompany_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDbConnectionService/registerCompanyResponse" message="tns:IDbConnectionService_registerCompany_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getCompany">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDbConnectionService/getCompany" message="tns:IDbConnectionService_getCompany_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDbConnectionService/getCompanyResponse" message="tns:IDbConnectionService_getCompany_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getCompanies">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDbConnectionService/getCompanies" message="tns:IDbConnectionService_getCompanies_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDbConnectionService/getCompaniesResponse" message="tns:IDbConnectionService_getCompanies_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCategories">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDbConnectionService/GetCategories" message="tns:IDbConnectionService_GetCategories_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDbConnectionService/GetCategoriesResponse" message="tns:IDbConnectionService_GetCategories_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllOffers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDbConnectionService/GetAllOffers" message="tns:IDbConnectionService_GetAllOffers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDbConnectionService/GetAllOffersResponse" message="tns:IDbConnectionService_GetAllOffers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOffersOfCategories">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDbConnectionService/GetOffersOfCategories" message="tns:IDbConnectionService_GetOffersOfCategories_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDbConnectionService/GetOffersOfCategoriesResponse" message="tns:IDbConnectionService_GetOffersOfCategories_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOffersOfCompany">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDbConnectionService/GetOffersOfCompany" message="tns:IDbConnectionService_GetOffersOfCompany_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDbConnectionService/GetOffersOfCompanyResponse" message="tns:IDbConnectionService_GetOffersOfCompany_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOffer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDbConnectionService/GetOffer" message="tns:IDbConnectionService_GetOffer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDbConnectionService/GetOfferResponse" message="tns:IDbConnectionService_GetOffer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddOffer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDbConnectionService/AddOffer" message="tns:IDbConnectionService_AddOffer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDbConnectionService/AddOfferResponse" message="tns:IDbConnectionService_AddOffer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOffer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDbConnectionService/UpdateOffer" message="tns:IDbConnectionService_UpdateOffer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDbConnectionService/UpdateOfferResponse" message="tns:IDbConnectionService_UpdateOffer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteOffer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDbConnectionService/DeleteOffer" message="tns:IDbConnectionService_DeleteOffer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDbConnectionService/DeleteOfferResponse" message="tns:IDbConnectionService_DeleteOffer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteOfferById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDbConnectionService/DeleteOfferById" message="tns:IDbConnectionService_DeleteOfferById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDbConnectionService/DeleteOfferByIdResponse" message="tns:IDbConnectionService_DeleteOfferById_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IDbConnectionService" type="tns:IDbConnectionService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="loginOperation">
+      <soap:operation soapAction="http://tempuri.org/IDbConnectionService/loginOperation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="changePassword">
+      <soap:operation soapAction="http://tempuri.org/IDbConnectionService/changePassword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="registerCompany">
+      <soap:operation soapAction="http://tempuri.org/IDbConnectionService/registerCompany" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCompany">
+      <soap:operation soapAction="http://tempuri.org/IDbConnectionService/getCompany" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCompanies">
+      <soap:operation soapAction="http://tempuri.org/IDbConnectionService/getCompanies" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCategories">
+      <soap:operation soapAction="http://tempuri.org/IDbConnectionService/GetCategories" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllOffers">
+      <soap:operation soapAction="http://tempuri.org/IDbConnectionService/GetAllOffers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOffersOfCategories">
+      <soap:operation soapAction="http://tempuri.org/IDbConnectionService/GetOffersOfCategories" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOffersOfCompany">
+      <soap:operation soapAction="http://tempuri.org/IDbConnectionService/GetOffersOfCompany" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOffer">
+      <soap:operation soapAction="http://tempuri.org/IDbConnectionService/GetOffer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddOffer">
+      <soap:operation soapAction="http://tempuri.org/IDbConnectionService/AddOffer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOffer">
+      <soap:operation soapAction="http://tempuri.org/IDbConnectionService/UpdateOffer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteOffer">
+      <soap:operation soapAction="http://tempuri.org/IDbConnectionService/DeleteOffer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteOfferById">
+      <soap:operation soapAction="http://tempuri.org/IDbConnectionService/DeleteOfferById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="DbConnectionService">
+    <wsdl:port name="BasicHttpBinding_IDbConnectionService" binding="tns:BasicHttpBinding_IDbConnectionService">
+      <soap:address location="http://localhost:8733/Design_Time_Addresses/PistollegroWCF/Service1/" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

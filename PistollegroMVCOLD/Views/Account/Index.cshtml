@@ -1,0 +1,22 @@
+﻿@model PistollegroMVC.Models.IndexViewModel
+@{
+    ViewBag.Title = "Manage account";
+}
+
+<h2>@ViewBag.Title.</h2>
+
+<p class="text-success">@ViewBag.StatusMessage</p>
+<div>
+    <h4>Here you can change your account settings.</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>Password:</dt>
+        <dd>
+                @Html.ActionLink("Change your password", "ChangePassword", routeValues: null)
+        </dd>
+        <dt>Manage offers:</dt>
+        <dd>@Html.ActionLink("Show my offers", "UserOffers", "WeaponOffers")</dd>
+        </dl>
+   
+  
+</div>

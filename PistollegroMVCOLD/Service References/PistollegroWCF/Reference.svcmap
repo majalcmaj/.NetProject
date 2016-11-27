@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="48c24033-8209-4824-ab6b-0942c1a0c807" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8733/Design_Time_Addresses/PistollegroWCF/Service1/mex" Protocol="mex" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="8d83653f-12ac-4955-a900-a35e106f8239" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/PistollegroWCF/Service1/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="45398cb2-8f01-4097-90cb-e7bdc6d04302" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/PistollegroWCF/Service1/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="c2711ead-dd7b-49a9-ba1a-967dabd29f18" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/PistollegroWCF/Service1/mex" />
+    <MetadataFile FileName="PistollegroWCF.xsd" MetadataType="Schema" ID="d1bf3158-0005-43b3-aa92-310a2d74f27d" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/PistollegroWCF/Service1/mex" />
+    <MetadataFile FileName="Arrays.xsd" MetadataType="Schema" ID="c6fd1808-64c2-4158-803e-1fd9ebe11fde" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/PistollegroWCF/Service1/mex" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
