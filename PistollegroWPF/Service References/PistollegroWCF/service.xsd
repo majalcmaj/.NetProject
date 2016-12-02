@@ -192,4 +192,44 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
+  <xs:element name="ApplyWeaponOffer">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="WeaponOfferID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ApplyWeaponOfferResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllOnSale">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="orderSort" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllOnSaleResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/PistollegroWCF" minOccurs="0" name="GetAllOnSaleResult" nillable="true" type="q14:ArrayOfWeaponOnSaleMV" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetOnSale">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetOnSaleResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/PistollegroWCF" minOccurs="0" name="GetOnSaleResult" nillable="true" type="q15:WeaponOnSaleMV" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

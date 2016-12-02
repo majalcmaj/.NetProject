@@ -264,6 +264,9 @@
     <Content Include="Service References\PistollegroWCF\PistollegroMVC.PistollegroWCF.CompanyMV.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <Content Include="Service References\PistollegroWCF\PistollegroMVC.PistollegroWCF.WeaponOnSaleMV.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Service References\PistollegroWCF\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>

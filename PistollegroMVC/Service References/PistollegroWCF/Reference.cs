@@ -279,6 +279,163 @@ namespace PistollegroMVC.PistollegroWCF {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="WeaponOnSaleMV", Namespace="http://schemas.datacontract.org/2004/07/PistollegroWCF")]
+    [System.SerializableAttribute()]
+    public partial class WeaponOnSaleMV : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CategoryNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DescriptionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool HasPictureField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int ItemsAvailableCountField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string OrganizationNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int PriceField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CategoryName {
+            get {
+                return this.CategoryNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CategoryNameField, value) != true)) {
+                    this.CategoryNameField = value;
+                    this.RaisePropertyChanged("CategoryName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Description {
+            get {
+                return this.DescriptionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DescriptionField, value) != true)) {
+                    this.DescriptionField = value;
+                    this.RaisePropertyChanged("Description");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool HasPicture {
+            get {
+                return this.HasPictureField;
+            }
+            set {
+                if ((this.HasPictureField.Equals(value) != true)) {
+                    this.HasPictureField = value;
+                    this.RaisePropertyChanged("HasPicture");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int ID {
+            get {
+                return this.IDField;
+            }
+            set {
+                if ((this.IDField.Equals(value) != true)) {
+                    this.IDField = value;
+                    this.RaisePropertyChanged("ID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int ItemsAvailableCount {
+            get {
+                return this.ItemsAvailableCountField;
+            }
+            set {
+                if ((this.ItemsAvailableCountField.Equals(value) != true)) {
+                    this.ItemsAvailableCountField = value;
+                    this.RaisePropertyChanged("ItemsAvailableCount");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Name {
+            get {
+                return this.NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string OrganizationName {
+            get {
+                return this.OrganizationNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OrganizationNameField, value) != true)) {
+                    this.OrganizationNameField = value;
+                    this.RaisePropertyChanged("OrganizationName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Price {
+            get {
+                return this.PriceField;
+            }
+            set {
+                if ((this.PriceField.Equals(value) != true)) {
+                    this.PriceField = value;
+                    this.RaisePropertyChanged("Price");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="PistollegroWCF.IDbConnectionService")]
     public interface IDbConnectionService {
@@ -366,6 +523,24 @@ namespace PistollegroMVC.PistollegroWCF {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDbConnectionService/DeleteOfferById", ReplyAction="http://tempuri.org/IDbConnectionService/DeleteOfferByIdResponse")]
         System.Threading.Tasks.Task DeleteOfferByIdAsync(System.Nullable<int> offerToDeleteID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDbConnectionService/ApplyWeaponOffer", ReplyAction="http://tempuri.org/IDbConnectionService/ApplyWeaponOfferResponse")]
+        void ApplyWeaponOffer(int WeaponOfferID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDbConnectionService/ApplyWeaponOffer", ReplyAction="http://tempuri.org/IDbConnectionService/ApplyWeaponOfferResponse")]
+        System.Threading.Tasks.Task ApplyWeaponOfferAsync(int WeaponOfferID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDbConnectionService/GetAllOnSale", ReplyAction="http://tempuri.org/IDbConnectionService/GetAllOnSaleResponse")]
+        PistollegroMVC.PistollegroWCF.WeaponOnSaleMV[] GetAllOnSale(string orderSort);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDbConnectionService/GetAllOnSale", ReplyAction="http://tempuri.org/IDbConnectionService/GetAllOnSaleResponse")]
+        System.Threading.Tasks.Task<PistollegroMVC.PistollegroWCF.WeaponOnSaleMV[]> GetAllOnSaleAsync(string orderSort);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDbConnectionService/GetOnSale", ReplyAction="http://tempuri.org/IDbConnectionService/GetOnSaleResponse")]
+        PistollegroMVC.PistollegroWCF.WeaponOnSaleMV GetOnSale(int ID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDbConnectionService/GetOnSale", ReplyAction="http://tempuri.org/IDbConnectionService/GetOnSaleResponse")]
+        System.Threading.Tasks.Task<PistollegroMVC.PistollegroWCF.WeaponOnSaleMV> GetOnSaleAsync(int ID);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -505,6 +680,30 @@ namespace PistollegroMVC.PistollegroWCF {
         
         public System.Threading.Tasks.Task DeleteOfferByIdAsync(System.Nullable<int> offerToDeleteID) {
             return base.Channel.DeleteOfferByIdAsync(offerToDeleteID);
+        }
+        
+        public void ApplyWeaponOffer(int WeaponOfferID) {
+            base.Channel.ApplyWeaponOffer(WeaponOfferID);
+        }
+        
+        public System.Threading.Tasks.Task ApplyWeaponOfferAsync(int WeaponOfferID) {
+            return base.Channel.ApplyWeaponOfferAsync(WeaponOfferID);
+        }
+        
+        public PistollegroMVC.PistollegroWCF.WeaponOnSaleMV[] GetAllOnSale(string orderSort) {
+            return base.Channel.GetAllOnSale(orderSort);
+        }
+        
+        public System.Threading.Tasks.Task<PistollegroMVC.PistollegroWCF.WeaponOnSaleMV[]> GetAllOnSaleAsync(string orderSort) {
+            return base.Channel.GetAllOnSaleAsync(orderSort);
+        }
+        
+        public PistollegroMVC.PistollegroWCF.WeaponOnSaleMV GetOnSale(int ID) {
+            return base.Channel.GetOnSale(ID);
+        }
+        
+        public System.Threading.Tasks.Task<PistollegroMVC.PistollegroWCF.WeaponOnSaleMV> GetOnSaleAsync(int ID) {
+            return base.Channel.GetOnSaleAsync(ID);
         }
     }
 }

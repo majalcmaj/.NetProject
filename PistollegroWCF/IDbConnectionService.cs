@@ -50,6 +50,18 @@ namespace PistollegroWCF
 
 		[OperationContract]
 		void DeleteOfferById(int? offerToDeleteID);
+
+		//Seller side
+		[OperationContract]
+		void ApplyWeaponOffer(int WeaponOfferID);
+
+		[OperationContract]
+		WeaponOnSaleMV[] GetAllOnSale(string orderSort = null);
+
+		[OperationContract]
+		WeaponOnSaleMV GetOnSale(int ID);
+
+
 	}
 
 	[DataContract]
@@ -117,5 +129,41 @@ namespace PistollegroWCF
 
 		[DataMember]
 		public string Password { get; set; }
+
+	}
+
+	[DataContract]
+	public class WeaponOnSaleMV
+	{
+		public WeaponOnSaleMV(int iD, int price, string name, string description, bool hasPicture, string categoryName, string orgniazationName)
+		{
+			ID = iD;
+			Price = price;
+			Name = name;
+			Description = description;
+			HasPicture = hasPicture;
+			CategoryName = categoryName;
+			OrganizationName = orgniazationName;
+
+		}
+
+		public WeaponOnSaleMV() { }
+
+		[DataMember]
+		public int ID { get; set; }
+		[DataMember]
+		public int Price { get; set; }
+		[DataMember]
+		public String Name { get; set; }
+		[DataMember]
+		public String Description { get; set; }
+		[DataMember]
+		public bool HasPicture { get; set; }
+		[DataMember]
+		public string CategoryName { get; set; }
+		[DataMember]
+		public string OrganizationName { get; set; }
+		[DataMember]
+		public int ItemsAvailableCount { get; set; }
 	}
 }

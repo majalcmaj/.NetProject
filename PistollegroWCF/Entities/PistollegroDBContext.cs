@@ -8,5 +8,6 @@ namespace PistollegroWCF.Entities
 		public DbSet<Company> Companies { get; set; }
 		public DbSet<WeaponOffer> WeaponOffers { get; set; }
 		public DbSet<WeaponCategory> WeaponCategories { get; set; }
+		public DbSet<WeaponOnSale> WeaponsOnSale { get; set; }
 	}
 }

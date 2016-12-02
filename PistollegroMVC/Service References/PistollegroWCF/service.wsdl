@@ -92,6 +92,24 @@
   <wsdl:message name="IDbConnectionService_DeleteOfferById_OutputMessage">
     <wsdl:part name="parameters" element="tns:DeleteOfferByIdResponse" />
   </wsdl:message>
+  <wsdl:message name="IDbConnectionService_ApplyWeaponOffer_InputMessage">
+    <wsdl:part name="parameters" element="tns:ApplyWeaponOffer" />
+  </wsdl:message>
+  <wsdl:message name="IDbConnectionService_ApplyWeaponOffer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ApplyWeaponOfferResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDbConnectionService_GetAllOnSale_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllOnSale" />
+  </wsdl:message>
+  <wsdl:message name="IDbConnectionService_GetAllOnSale_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllOnSaleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDbConnectionService_GetOnSale_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetOnSale" />
+  </wsdl:message>
+  <wsdl:message name="IDbConnectionService_GetOnSale_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetOnSaleResponse" />
+  </wsdl:message>
   <wsdl:portType name="IDbConnectionService">
     <wsdl:operation name="loginOperation">
       <wsdl:input wsaw:Action="http://tempuri.org/IDbConnectionService/loginOperation" message="tns:IDbConnectionService_loginOperation_InputMessage" />
@@ -148,6 +166,18 @@
     <wsdl:operation name="DeleteOfferById">
       <wsdl:input wsaw:Action="http://tempuri.org/IDbConnectionService/DeleteOfferById" message="tns:IDbConnectionService_DeleteOfferById_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IDbConnectionService/DeleteOfferByIdResponse" message="tns:IDbConnectionService_DeleteOfferById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ApplyWeaponOffer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDbConnectionService/ApplyWeaponOffer" message="tns:IDbConnectionService_ApplyWeaponOffer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDbConnectionService/ApplyWeaponOfferResponse" message="tns:IDbConnectionService_ApplyWeaponOffer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllOnSale">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDbConnectionService/GetAllOnSale" message="tns:IDbConnectionService_GetAllOnSale_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDbConnectionService/GetAllOnSaleResponse" message="tns:IDbConnectionService_GetAllOnSale_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOnSale">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDbConnectionService/GetOnSale" message="tns:IDbConnectionService_GetOnSale_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDbConnectionService/GetOnSaleResponse" message="tns:IDbConnectionService_GetOnSale_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IDbConnectionService" type="tns:IDbConnectionService">
@@ -271,6 +301,33 @@
     </wsdl:operation>
     <wsdl:operation name="DeleteOfferById">
       <soap:operation soapAction="http://tempuri.org/IDbConnectionService/DeleteOfferById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ApplyWeaponOffer">
+      <soap:operation soapAction="http://tempuri.org/IDbConnectionService/ApplyWeaponOffer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllOnSale">
+      <soap:operation soapAction="http://tempuri.org/IDbConnectionService/GetAllOnSale" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOnSale">
+      <soap:operation soapAction="http://tempuri.org/IDbConnectionService/GetOnSale" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

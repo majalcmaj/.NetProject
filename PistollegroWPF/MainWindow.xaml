@@ -5,27 +5,53 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PistollegroWPF"
         mc:Ignorable="d"
-        Title="Pistollegro" Height="600" Width="800">
+        Title="Pistollegro" Height="600" Width="800" ResizeMode="NoResize">
     <TabControl x:Name="tabControl" HorizontalAlignment="Left" Height="549" Margin="6,14,0,0" VerticalAlignment="Top" Width="780">
-        <TabItem Header="TabItem">
-            <DataGrid x:Name="CompanyOffers" HorizontalAlignment="Left" Height="360" Margin="0,5,-1,0" VerticalAlignment="Top" Width="775" SelectionChanged="CompanyOffers_SelectionChanged">
-                <DataGrid.Columns>
-                    <DataGridTemplateColumn Width="2*" Header="Picture">
-                        <DataGridTemplateColumn.CellTemplate>
-                            <DataTemplate>
-                                <Image Source="{Binding ImagePath}" />
-                            </DataTemplate>
-                        </DataGridTemplateColumn.CellTemplate>
-                    </DataGridTemplateColumn>
-                    <DataGridTextColumn Width="2*" Binding="{Binding Name}" Header="Name"/>
-                    <DataGridTextColumn Width="1*" Binding="{Binding Price}" Header="Price"/>
-                    <DataGridTextColumn Width="3*" Binding="{Binding Description}" Header="Description"/>
-                    <DataGridTextColumn Width="1*" Binding="{Binding Category}" Header="Category"/>
-                </DataGrid.Columns>
-            </DataGrid>
+        <TabItem Header="Weapon Offers" Name="WeaponOffersTab" GotFocus="WeaponOffersTab_GotFocus">
+            <Grid>
+                <DataGrid x:Name="CompanyOffers" HorizontalAlignment="Left" Height="481" Margin="0,5,-1,0" VerticalAlignment="Top" Width="775" 
+                      IsReadOnly="True">
+                    <DataGrid.Columns>
+                        <DataGridTemplateColumn Width="2*" Header="Picture">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Image Source="{Binding ImagePath}" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTextColumn Width="2*" Binding="{Binding Name}" Header="Name"/>
+                        <DataGridTextColumn Width="1*" Binding="{Binding Price}" Header="Price"/>
+                        <DataGridTextColumn Width="3*" Binding="{Binding Description}" Header="Description"/>
+                        <DataGridTextColumn Width="1*" Binding="{Binding Category}" Header="Category"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+                <Button x:Name="AcceptOfferButton" Content="Accept Offer" HorizontalAlignment="Left" Margin="9,491,0,0" VerticalAlignment="Top" Width="75" Click="AcceptOfferButton_Click"/>
+                <Button x:Name="RefreshOffers" Content="Refresh List" HorizontalAlignment="Left" Margin="104,491,0,0" VerticalAlignment="Top" Width="75" Click="RefreshOffers_Click"/>
+            </Grid>
         </TabItem>
-        <TabItem Header="TabItem">
-            <Grid Background="#FFE5E5E5"/>
+        <TabItem Header="Items on Sale" Name="OnSaleTab" GotFocus="OnSale_GotFocus">
+            <Grid>
+                <Button x:Name="DeleteItems" Content="Delete Items" HorizontalAlignment="Left" Margin="10,491,0,0" VerticalAlignment="Top" Width="75" Click="DeleteItems_Click"/>
+                <Button x:Name="EditItem" Content="Edit Item" HorizontalAlignment="Left" Margin="90,491,0,0" VerticalAlignment="Top" Width="97" Click="EditItem_Click"/>
+                <Button x:Name="OrderMore" Content="Order More" HorizontalAlignment="Left" Margin="192,491,0,0" VerticalAlignment="Top" Width="75" Click="OrderMore_Click"/>
+                <DataGrid x:Name="ItemsOnSale" HorizontalAlignment="Left" Height="481" Margin="0,5,-1,0" VerticalAlignment="Top" Width="775" 
+                          SelectionMode="Single" SelectionUnit="FullRow">
+                    <DataGrid.Columns>
+                        <DataGridTemplateColumn Width="2*" Header="Picture">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Image Source="{Binding ImagePath}" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTextColumn Width="2*" Binding="{Binding Name}" Header="Name"/>
+                        <DataGridTextColumn Width="1*" Binding="{Binding ItemsAvailableCount}" Header="Count Avail."/>
+                        <DataGridTextColumn Width="1*" Binding="{Binding Price}" Header="Price"/>
+                        <DataGridTextColumn Width="3*" Binding="{Binding Description}" Header="Description"/>
+                        <DataGridTextColumn Width="1*" Binding="{Binding Category}" Header="Category"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
         </TabItem>
     </TabControl>
 </Window>

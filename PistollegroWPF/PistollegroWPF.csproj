@@ -57,11 +57,32 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="OrderItemsDialog.xaml.cs">
+      <DependentUpon>OrderItemsDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EditItemDialog.xaml.cs">
+      <DependentUpon>EditItemDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ApplyOfferDialog.xaml.cs">
+      <DependentUpon>ApplyOfferDialog.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Service References\PistollegroWCF\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Page Include="OrderItemsDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="EditItemDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ApplyOfferDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -93,6 +114,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="Properties\DataSources\PistollegroWCF.CompanyMV.datasource" />
+    <None Include="Properties\DataSources\PistollegroWCF.WeaponOfferMV.datasource" />
+    <None Include="Properties\DataSources\PistollegroWCF.WeaponOnSaleMV.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -110,6 +134,9 @@
     <None Include="Service References\PistollegroWCF\PistollegroWPF.PistollegroWCF.WeaponOfferMV.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Service References\PistollegroWCF\PistollegroWPF.PistollegroWCF.WeaponOnSaleMV.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\PistollegroWCF\service.wsdl" />
     <None Include="Service References\PistollegroWCF\service.xsd">
       <SubType>Designer</SubType>
@@ -125,6 +152,12 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\PistollegroWCF\PistollegroWCF.csproj">
+      <Project>{EA5B1526-9A2F-41B4-B247-01125B703A08}</Project>
+      <Name>PistollegroWCF</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
     <WCFMetadataStorage Include="Service References\PistollegroWCF\" />
   </ItemGroup>
   <ItemGroup>
@@ -138,12 +171,6 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\PistollegroWCF\PistollegroWCF.csproj">
-      <Project>{EA5B1526-9A2F-41B4-B247-01125B703A08}</Project>
-      <Name>PistollegroWCF</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

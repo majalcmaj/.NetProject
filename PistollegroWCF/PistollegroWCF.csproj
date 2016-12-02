@@ -60,7 +60,9 @@
     <Compile Include="Entities\Company.cs" />
     <Compile Include="Entities\PistollegroDBContext.cs" />
     <Compile Include="Entities\WeaponCategory.cs" />
+    <Compile Include="Entities\WeaponInfo.cs" />
     <Compile Include="Entities\WeaponOffer.cs" />
+    <Compile Include="Entities\WeaponOnSale.cs" />
     <Compile Include="Utils\Cryptography.cs" />
     <Compile Include="IDbConnectionService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -68,7 +70,9 @@
     <Compile Include="Utils\ServiceSettingsManager.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

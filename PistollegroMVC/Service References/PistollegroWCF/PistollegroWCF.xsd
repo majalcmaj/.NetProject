@@ -35,4 +35,23 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="WeaponOfferMV" nillable="true" type="tns:WeaponOfferMV" />
+  <xs:complexType name="ArrayOfWeaponOnSaleMV">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="WeaponOnSaleMV" nillable="true" type="tns:WeaponOnSaleMV" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfWeaponOnSaleMV" nillable="true" type="tns:ArrayOfWeaponOnSaleMV" />
+  <xs:complexType name="WeaponOnSaleMV">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CategoryName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="HasPicture" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="ItemsAvailableCount" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OrganizationName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Price" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="WeaponOnSaleMV" nillable="true" type="tns:WeaponOnSaleMV" />
 </xs:schema>

@@ -148,7 +148,7 @@ namespace PistollegroWCF
 			return categories;
 		}
 
-		public WeaponOfferMV[] GetAllOffers(string sortOrder=null)
+		public WeaponOfferMV[] GetAllOffers(string sortOrder = null)
 		{
 			WeaponOfferMV[] result;
 
@@ -222,7 +222,7 @@ namespace PistollegroWCF
 			return result;
 		}
 
-		public WeaponOfferMV[] GetOffersOfCompany(string companyName, string sortOrder=null)
+		public WeaponOfferMV[] GetOffersOfCompany(string companyName, string sortOrder = null)
 		{
 			WeaponOfferMV[] result;
 			var offs = db.WeaponOffers
@@ -353,6 +353,92 @@ namespace PistollegroWCF
 				db.WeaponOffers.Remove(offer);
 				db.SaveChanges();
 			}
+		}
+
+		public void ApplyWeaponOffer(int WeaponOfferID)
+		{
+			var x = db.WeaponOffers.Find(WeaponOfferID);
+			var onSale = new WeaponOnSale()
+			{
+				ID = x.ID,
+				Price = x.Price,
+				Name = x.Name,
+				Description = x.Description,
+				HasPicture = x.HasPicture,
+				CategoryName = x.CategoryName,
+				WeaponCategory = x.WeaponCategory,
+				OrganizationName = x.OrganizationName,
+				CountAvailable = 0,
+				Company = x.Company
+			};
+			db.WeaponOffers.Remove(x);
+			db.WeaponsOnSale.Add(onSale);
+			db.SaveChanges();
+		}
+
+		public WeaponOnSaleMV[] GetAllOnSale(string orderSort = null)
+		{
+			WeaponOnSaleMV[] result;
+			var offs = db.WeaponsOnSale
+							.Select(x => new WeaponOnSaleMV()
+							{
+								ID = x.ID,
+								Price = x.Price,
+								Name = x.Name,
+								Description = x.Description,
+								HasPicture = x.HasPicture,
+								CategoryName = x.CategoryName,
+								OrganizationName = x.OrganizationName,
+								ItemsAvailableCount = x.CountAvailable
+							});
+
+			switch (orderSort)
+			{
+				case "name_desc":
+					offs = offs.OrderByDescending(x => x.Name);
+					break;
+				case "Price":
+					offs = offs.OrderBy(x => x.Price);
+					break;
+				case "price_desc":
+					offs = offs.OrderByDescending(x => x.Price);
+					break;
+				case "category_desc":
+					offs = offs.OrderByDescending(x => x.CategoryName);
+					break;
+				case "Category":
+					offs = offs.OrderBy(x => x.CategoryName);
+					break;
+				case "description_desc":
+					offs = offs.OrderByDescending(x => x.Description);
+					break;
+				case "Description":
+					offs = offs.OrderBy(x => x.Description);
+					break;
+
+				default:
+					offs = offs.OrderBy(x => x.Name);
+					break;
+			}
+			result = offs.ToArray();
+
+			return result;
+		}
+
+		public WeaponOnSaleMV GetOnSale(int ID)
+		{
+			var x = db.WeaponsOnSale.Find(ID);
+			return new WeaponOnSaleMV()
+			{
+				ID = x.ID,
+				Price = x.Price,
+				Name = x.Name,
+				Description = x.Description,
+				HasPicture = x.HasPicture,
+				CategoryName = x.CategoryName,
+				OrganizationName = x.OrganizationName,
+				ItemsAvailableCount = x.CountAvailable
+			};
 		}
 
 		~DbConnectionService()
