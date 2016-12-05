@@ -152,10 +152,7 @@ namespace PistollegroMVC.Controllers
 		}
 
 
-
-
 		[Authorize]
-
 		public ActionResult UserOffers(string sortOrder)
 		{
 			ViewBag.NameSortParam = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
@@ -173,6 +170,43 @@ namespace PistollegroMVC.Controllers
 				return View(offers);
 			else
 				return HttpNotFound();
+		}
+
+		[Authorize]
+		public ActionResult UserContracts()
+		{
+			var onSale = service.GetOnSaleOfCompany(User.Identity.Name);
+			if (onSale != null)
+			{
+				ViewBag.picturesDirectory = config.picturesDirectory;
+				ViewBag.thumbmailSuffix = config.thumbmailSuffix;
+				ViewBag.defaultPicture = config.defaultPhotoFilename;
+				return View(onSale);
+			}
+			else
+				return HttpNotFound();
+		}
+
+		[Authorize]
+		public ActionResult UserShipmentOrders()
+		{
+			var Shipments = service.GetShipmentsForCompany(User.Identity.Name);
+			if (Shipments != null)
+			{
+				return View(Shipments);
+			}
+			else
+				return HttpNotFound();
+		}
+
+		public ActionResult FulfillOrder(int? id)
+		{
+			if (id == null)
+			{
+				return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+			}
+			service.FulfillShipment(User.Identity.Name, (int)id);
+			return RedirectToAction("Index");
 		}
 	}
 }

@@ -131,6 +131,9 @@
     <None Include="Service References\PistollegroWCF\PistollegroWPF.PistollegroWCF.CompanyMV.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Service References\PistollegroWCF\PistollegroWPF.PistollegroWCF.ShipmentOrderMV.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\PistollegroWCF\PistollegroWPF.PistollegroWCF.WeaponOfferMV.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>

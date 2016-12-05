@@ -35,12 +35,20 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="WeaponOfferMV" nillable="true" type="tns:WeaponOfferMV" />
-  <xs:complexType name="ArrayOfWeaponOnSaleMV">
+  <xs:complexType name="ArrayOfShipmentOrderMV">
     <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="WeaponOnSaleMV" nillable="true" type="tns:WeaponOnSaleMV" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ShipmentOrderMV" nillable="true" type="tns:ShipmentOrderMV" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="ArrayOfWeaponOnSaleMV" nillable="true" type="tns:ArrayOfWeaponOnSaleMV" />
+  <xs:element name="ArrayOfShipmentOrderMV" nillable="true" type="tns:ArrayOfShipmentOrderMV" />
+  <xs:complexType name="ShipmentOrderMV">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Count" type="xs:int" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="WeaponOnSale" nillable="true" type="tns:WeaponOnSaleMV" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ShipmentOrderMV" nillable="true" type="tns:ShipmentOrderMV" />
   <xs:complexType name="WeaponOnSaleMV">
     <xs:sequence>
       <xs:element minOccurs="0" name="CategoryName" nillable="true" type="xs:string" />
@@ -54,4 +62,10 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="WeaponOnSaleMV" nillable="true" type="tns:WeaponOnSaleMV" />
+  <xs:complexType name="ArrayOfWeaponOnSaleMV">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="WeaponOnSaleMV" nillable="true" type="tns:WeaponOnSaleMV" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfWeaponOnSaleMV" nillable="true" type="tns:ArrayOfWeaponOnSaleMV" />
 </xs:schema>

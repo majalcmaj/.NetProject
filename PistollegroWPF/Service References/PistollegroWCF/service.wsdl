@@ -92,6 +92,30 @@
   <wsdl:message name="IDbConnectionService_DeleteOfferById_OutputMessage">
     <wsdl:part name="parameters" element="tns:DeleteOfferByIdResponse" />
   </wsdl:message>
+  <wsdl:message name="IDbConnectionService_GetShipmentsForCompany_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetShipmentsForCompany" />
+  </wsdl:message>
+  <wsdl:message name="IDbConnectionService_GetShipmentsForCompany_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetShipmentsForCompanyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDbConnectionService_GetAllShipments_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllShipments" />
+  </wsdl:message>
+  <wsdl:message name="IDbConnectionService_GetAllShipments_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllShipmentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDbConnectionService_FulfillShipment_InputMessage">
+    <wsdl:part name="parameters" element="tns:FulfillShipment" />
+  </wsdl:message>
+  <wsdl:message name="IDbConnectionService_FulfillShipment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FulfillShipmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDbConnectionService_DeleteShipmentOfferById_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteShipmentOfferById" />
+  </wsdl:message>
+  <wsdl:message name="IDbConnectionService_DeleteShipmentOfferById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteShipmentOfferByIdResponse" />
+  </wsdl:message>
   <wsdl:message name="IDbConnectionService_ApplyWeaponOffer_InputMessage">
     <wsdl:part name="parameters" element="tns:ApplyWeaponOffer" />
   </wsdl:message>
@@ -109,6 +133,24 @@
   </wsdl:message>
   <wsdl:message name="IDbConnectionService_GetOnSale_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetOnSaleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDbConnectionService_EditOnSale_InputMessage">
+    <wsdl:part name="parameters" element="tns:EditOnSale" />
+  </wsdl:message>
+  <wsdl:message name="IDbConnectionService_EditOnSale_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditOnSaleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDbConnectionService_OrderMore_InputMessage">
+    <wsdl:part name="parameters" element="tns:OrderMore" />
+  </wsdl:message>
+  <wsdl:message name="IDbConnectionService_OrderMore_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OrderMoreResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDbConnectionService_DeleteFromSaleById_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteFromSaleById" />
+  </wsdl:message>
+  <wsdl:message name="IDbConnectionService_DeleteFromSaleById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteFromSaleByIdResponse" />
   </wsdl:message>
   <wsdl:portType name="IDbConnectionService">
     <wsdl:operation name="loginOperation">
@@ -167,6 +209,22 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IDbConnectionService/DeleteOfferById" message="tns:IDbConnectionService_DeleteOfferById_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IDbConnectionService/DeleteOfferByIdResponse" message="tns:IDbConnectionService_DeleteOfferById_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="GetShipmentsForCompany">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDbConnectionService/GetShipmentsForCompany" message="tns:IDbConnectionService_GetShipmentsForCompany_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDbConnectionService/GetShipmentsForCompanyResponse" message="tns:IDbConnectionService_GetShipmentsForCompany_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllShipments">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDbConnectionService/GetAllShipments" message="tns:IDbConnectionService_GetAllShipments_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDbConnectionService/GetAllShipmentsResponse" message="tns:IDbConnectionService_GetAllShipments_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FulfillShipment">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDbConnectionService/FulfillShipment" message="tns:IDbConnectionService_FulfillShipment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDbConnectionService/FulfillShipmentResponse" message="tns:IDbConnectionService_FulfillShipment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteShipmentOfferById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDbConnectionService/DeleteShipmentOfferById" message="tns:IDbConnectionService_DeleteShipmentOfferById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDbConnectionService/DeleteShipmentOfferByIdResponse" message="tns:IDbConnectionService_DeleteShipmentOfferById_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="ApplyWeaponOffer">
       <wsdl:input wsaw:Action="http://tempuri.org/IDbConnectionService/ApplyWeaponOffer" message="tns:IDbConnectionService_ApplyWeaponOffer_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IDbConnectionService/ApplyWeaponOfferResponse" message="tns:IDbConnectionService_ApplyWeaponOffer_OutputMessage" />
@@ -178,6 +236,18 @@
     <wsdl:operation name="GetOnSale">
       <wsdl:input wsaw:Action="http://tempuri.org/IDbConnectionService/GetOnSale" message="tns:IDbConnectionService_GetOnSale_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IDbConnectionService/GetOnSaleResponse" message="tns:IDbConnectionService_GetOnSale_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EditOnSale">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDbConnectionService/EditOnSale" message="tns:IDbConnectionService_EditOnSale_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDbConnectionService/EditOnSaleResponse" message="tns:IDbConnectionService_EditOnSale_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OrderMore">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDbConnectionService/OrderMore" message="tns:IDbConnectionService_OrderMore_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDbConnectionService/OrderMoreResponse" message="tns:IDbConnectionService_OrderMore_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteFromSaleById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDbConnectionService/DeleteFromSaleById" message="tns:IDbConnectionService_DeleteFromSaleById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDbConnectionService/DeleteFromSaleByIdResponse" message="tns:IDbConnectionService_DeleteFromSaleById_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IDbConnectionService" type="tns:IDbConnectionService">
@@ -308,6 +378,42 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetShipmentsForCompany">
+      <soap:operation soapAction="http://tempuri.org/IDbConnectionService/GetShipmentsForCompany" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllShipments">
+      <soap:operation soapAction="http://tempuri.org/IDbConnectionService/GetAllShipments" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FulfillShipment">
+      <soap:operation soapAction="http://tempuri.org/IDbConnectionService/FulfillShipment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteShipmentOfferById">
+      <soap:operation soapAction="http://tempuri.org/IDbConnectionService/DeleteShipmentOfferById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="ApplyWeaponOffer">
       <soap:operation soapAction="http://tempuri.org/IDbConnectionService/ApplyWeaponOffer" style="document" />
       <wsdl:input>
@@ -328,6 +434,33 @@
     </wsdl:operation>
     <wsdl:operation name="GetOnSale">
       <soap:operation soapAction="http://tempuri.org/IDbConnectionService/GetOnSale" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditOnSale">
+      <soap:operation soapAction="http://tempuri.org/IDbConnectionService/EditOnSale" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OrderMore">
+      <soap:operation soapAction="http://tempuri.org/IDbConnectionService/OrderMore" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteFromSaleById">
+      <soap:operation soapAction="http://tempuri.org/IDbConnectionService/DeleteFromSaleById" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

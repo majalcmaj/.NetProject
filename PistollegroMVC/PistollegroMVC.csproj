@@ -267,6 +267,9 @@
     <Content Include="Service References\PistollegroWCF\PistollegroMVC.PistollegroWCF.WeaponOnSaleMV.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <Content Include="Service References\PistollegroWCF\PistollegroMVC.PistollegroWCF.ShipmentOrderMV.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Service References\PistollegroWCF\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
@@ -306,6 +309,8 @@
       <SubType>Designer</SubType>
     </None>
     <Content Include="Views\WeaponOffers\UserOffers.cshtml" />
+    <Content Include="Views\WeaponOffers\UserShipmentOrders.cshtml" />
+    <Content Include="Views\WeaponOffers\UserContracts.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

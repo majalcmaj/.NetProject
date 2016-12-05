@@ -51,6 +51,18 @@ namespace PistollegroWCF
 		[OperationContract]
 		void DeleteOfferById(int? offerToDeleteID);
 
+		[OperationContract]
+		ShipmentOrderMV[] GetShipmentsForCompany(String CompanyName);
+
+		[OperationContract]
+		ShipmentOrderMV[] GetAllShipments();
+
+		[OperationContract]
+		void FulfillShipment(String CompanyName, int shipmentId);
+
+		[OperationContract]
+		void DeleteShipmentOfferById(int shipmentOfferId);
+
 		//Seller side
 		[OperationContract]
 		void ApplyWeaponOffer(int WeaponOfferID);
@@ -59,8 +71,19 @@ namespace PistollegroWCF
 		WeaponOnSaleMV[] GetAllOnSale(string orderSort = null);
 
 		[OperationContract]
+		WeaponOnSaleMV[] GetOnSaleOfCompany(string companyName);
+
+		[OperationContract]
 		WeaponOnSaleMV GetOnSale(int ID);
 
+		[OperationContract]
+		void EditOnSale(WeaponOnSaleMV onSale);
+
+		[OperationContract]
+		void OrderMore(int onSaleId, int? orderCount);
+
+		[OperationContract]
+		void DeleteFromSaleById(int onSaleId);
 
 	}
 
@@ -135,7 +158,7 @@ namespace PistollegroWCF
 	[DataContract]
 	public class WeaponOnSaleMV
 	{
-		public WeaponOnSaleMV(int iD, int price, string name, string description, bool hasPicture, string categoryName, string orgniazationName)
+		public WeaponOnSaleMV(int iD, int price, string name, string description, bool hasPicture, string categoryName, string orgniazationName, int availableCount)
 		{
 			ID = iD;
 			Price = price;
@@ -144,7 +167,7 @@ namespace PistollegroWCF
 			HasPicture = hasPicture;
 			CategoryName = categoryName;
 			OrganizationName = orgniazationName;
-
+			ItemsAvailableCount = availableCount;
 		}
 
 		public WeaponOnSaleMV() { }
@@ -165,5 +188,24 @@ namespace PistollegroWCF
 		public string OrganizationName { get; set; }
 		[DataMember]
 		public int ItemsAvailableCount { get; set; }
+	}
+
+	[DataContract]
+	public class ShipmentOrderMV
+	{
+		public ShipmentOrderMV(WeaponOnSaleMV weaponOnSale, int count)
+		{
+			this.WeaponOnSale = weaponOnSale;
+			this.Count = count;
+		}
+
+		public ShipmentOrderMV() { }
+
+		[DataMember]
+		public int ID { get; set; }
+		[DataMember]
+		public WeaponOnSaleMV WeaponOnSale { get; set; }
+		[DataMember]
+		public int Count { get; set; }
 	}
 }

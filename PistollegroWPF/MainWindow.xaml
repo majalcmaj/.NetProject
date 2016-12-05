@@ -6,8 +6,8 @@
         xmlns:local="clr-namespace:PistollegroWPF"
         mc:Ignorable="d"
         Title="Pistollegro" Height="600" Width="800" ResizeMode="NoResize">
-    <TabControl x:Name="tabControl" HorizontalAlignment="Left" Height="549" Margin="6,14,0,0" VerticalAlignment="Top" Width="780">
-        <TabItem Header="Weapon Offers" Name="WeaponOffersTab" GotFocus="WeaponOffersTab_GotFocus">
+    <TabControl x:Name="tabControl" HorizontalAlignment="Left" Height="549" Margin="6,14,0,0" VerticalAlignment="Top" Width="780" SelectionChanged="tabControl_SelectionChanged">
+        <TabItem Header="Weapon Offers" Name="WeaponOffersTab">
             <Grid>
                 <DataGrid x:Name="CompanyOffers" HorizontalAlignment="Left" Height="481" Margin="0,5,-1,0" VerticalAlignment="Top" Width="775" 
                       IsReadOnly="True">
@@ -29,7 +29,7 @@
                 <Button x:Name="RefreshOffers" Content="Refresh List" HorizontalAlignment="Left" Margin="104,491,0,0" VerticalAlignment="Top" Width="75" Click="RefreshOffers_Click"/>
             </Grid>
         </TabItem>
-        <TabItem Header="Items on Sale" Name="OnSaleTab" GotFocus="OnSale_GotFocus">
+        <TabItem Header="Weapon Offers" Name="OnSaleTab">
             <Grid>
                 <Button x:Name="DeleteItems" Content="Delete Items" HorizontalAlignment="Left" Margin="10,491,0,0" VerticalAlignment="Top" Width="75" Click="DeleteItems_Click"/>
                 <Button x:Name="EditItem" Content="Edit Item" HorizontalAlignment="Left" Margin="90,491,0,0" VerticalAlignment="Top" Width="97" Click="EditItem_Click"/>
@@ -49,6 +49,19 @@
                         <DataGridTextColumn Width="1*" Binding="{Binding Price}" Header="Price"/>
                         <DataGridTextColumn Width="3*" Binding="{Binding Description}" Header="Description"/>
                         <DataGridTextColumn Width="1*" Binding="{Binding Category}" Header="Category"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+        </TabItem>
+        <TabItem Header="Shipment Orders" Name="ShipmentTab">
+            <Grid>
+                <Button x:Name="DeleteShipment" Content="Delete Items" HorizontalAlignment="Left" Margin="10,491,0,0" VerticalAlignment="Top" Width="75" Click="DeleteShipment_Click"/>
+                <DataGrid x:Name="ShipmentOrders" HorizontalAlignment="Left" Height="481" Margin="0,5,-1,0" VerticalAlignment="Top" Width="775" 
+                          SelectionMode="Single" SelectionUnit="FullRow">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Width="1*" Binding="{Binding ItemID}" Header="Price"/>
+                        <DataGridTextColumn Width="7*" Binding="{Binding Name}" Header="Name"/>
+                        <DataGridTextColumn Width="2*" Binding="{Binding OrderedItemsCount}" Header="Ordered Count"/>
                     </DataGrid.Columns>
                 </DataGrid>
             </Grid>

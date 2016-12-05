@@ -19,5 +19,6 @@ namespace PistollegroWCF.Entities
 		}
 		public int CountAvailable { get; set; }
 
+		public virtual ICollection<ShipmentOrder> ShipmentOrders { get; set; }
 	}
 }

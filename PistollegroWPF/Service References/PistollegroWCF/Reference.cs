@@ -281,6 +281,83 @@ namespace PistollegroWPF.PistollegroWCF {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ShipmentOrderMV", Namespace="http://schemas.datacontract.org/2004/07/PistollegroWCF")]
+    [System.SerializableAttribute()]
+    public partial class ShipmentOrderMV : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int CountField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private PistollegroWPF.PistollegroWCF.WeaponOnSaleMV WeaponOnSaleField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Count {
+            get {
+                return this.CountField;
+            }
+            set {
+                if ((this.CountField.Equals(value) != true)) {
+                    this.CountField = value;
+                    this.RaisePropertyChanged("Count");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int ID {
+            get {
+                return this.IDField;
+            }
+            set {
+                if ((this.IDField.Equals(value) != true)) {
+                    this.IDField = value;
+                    this.RaisePropertyChanged("ID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public PistollegroWPF.PistollegroWCF.WeaponOnSaleMV WeaponOnSale {
+            get {
+                return this.WeaponOnSaleField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.WeaponOnSaleField, value) != true)) {
+                    this.WeaponOnSaleField = value;
+                    this.RaisePropertyChanged("WeaponOnSale");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="WeaponOnSaleMV", Namespace="http://schemas.datacontract.org/2004/07/PistollegroWCF")]
     [System.SerializableAttribute()]
     public partial class WeaponOnSaleMV : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
@@ -482,6 +559,18 @@ namespace PistollegroWPF.PistollegroWCF {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDbConnectionService/DeleteOfferById", ReplyAction="http://tempuri.org/IDbConnectionService/DeleteOfferByIdResponse")]
         void DeleteOfferById(System.Nullable<int> offerToDeleteID);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDbConnectionService/GetShipmentsForCompany", ReplyAction="http://tempuri.org/IDbConnectionService/GetShipmentsForCompanyResponse")]
+        PistollegroWPF.PistollegroWCF.ShipmentOrderMV[] GetShipmentsForCompany(string CompanyName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDbConnectionService/GetAllShipments", ReplyAction="http://tempuri.org/IDbConnectionService/GetAllShipmentsResponse")]
+        PistollegroWPF.PistollegroWCF.ShipmentOrderMV[] GetAllShipments();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDbConnectionService/FulfillShipment", ReplyAction="http://tempuri.org/IDbConnectionService/FulfillShipmentResponse")]
+        void FulfillShipment(string CompanyName, int shipmentId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDbConnectionService/DeleteShipmentOfferById", ReplyAction="http://tempuri.org/IDbConnectionService/DeleteShipmentOfferByIdResponse")]
+        void DeleteShipmentOfferById(int shipmentOfferId);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDbConnectionService/ApplyWeaponOffer", ReplyAction="http://tempuri.org/IDbConnectionService/ApplyWeaponOfferResponse")]
         void ApplyWeaponOffer(int WeaponOfferID);
         
@@ -490,6 +579,15 @@ namespace PistollegroWPF.PistollegroWCF {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDbConnectionService/GetOnSale", ReplyAction="http://tempuri.org/IDbConnectionService/GetOnSaleResponse")]
         PistollegroWPF.PistollegroWCF.WeaponOnSaleMV GetOnSale(int ID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDbConnectionService/EditOnSale", ReplyAction="http://tempuri.org/IDbConnectionService/EditOnSaleResponse")]
+        void EditOnSale(PistollegroWPF.PistollegroWCF.WeaponOnSaleMV onSale);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDbConnectionService/OrderMore", ReplyAction="http://tempuri.org/IDbConnectionService/OrderMoreResponse")]
+        void OrderMore(int onSaleId, System.Nullable<int> orderCount);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDbConnectionService/DeleteFromSaleById", ReplyAction="http://tempuri.org/IDbConnectionService/DeleteFromSaleByIdResponse")]
+        void DeleteFromSaleById(int onSaleId);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -575,6 +673,22 @@ namespace PistollegroWPF.PistollegroWCF {
             base.Channel.DeleteOfferById(offerToDeleteID);
         }
         
+        public PistollegroWPF.PistollegroWCF.ShipmentOrderMV[] GetShipmentsForCompany(string CompanyName) {
+            return base.Channel.GetShipmentsForCompany(CompanyName);
+        }
+        
+        public PistollegroWPF.PistollegroWCF.ShipmentOrderMV[] GetAllShipments() {
+            return base.Channel.GetAllShipments();
+        }
+        
+        public void FulfillShipment(string CompanyName, int shipmentId) {
+            base.Channel.FulfillShipment(CompanyName, shipmentId);
+        }
+        
+        public void DeleteShipmentOfferById(int shipmentOfferId) {
+            base.Channel.DeleteShipmentOfferById(shipmentOfferId);
+        }
+        
         public void ApplyWeaponOffer(int WeaponOfferID) {
             base.Channel.ApplyWeaponOffer(WeaponOfferID);
         }
@@ -585,6 +699,18 @@ namespace PistollegroWPF.PistollegroWCF {
         
         public PistollegroWPF.PistollegroWCF.WeaponOnSaleMV GetOnSale(int ID) {
             return base.Channel.GetOnSale(ID);
+        }
+        
+        public void EditOnSale(PistollegroWPF.PistollegroWCF.WeaponOnSaleMV onSale) {
+            base.Channel.EditOnSale(onSale);
+        }
+        
+        public void OrderMore(int onSaleId, System.Nullable<int> orderCount) {
+            base.Channel.OrderMore(onSaleId, orderCount);
+        }
+        
+        public void DeleteFromSaleById(int onSaleId) {
+            base.Channel.DeleteFromSaleById(onSaleId);
         }
     }
 }

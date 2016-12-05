@@ -15,7 +15,7 @@
         <TextBox x:Name="DescriptionTextBox" HorizontalAlignment="Left" Height="77" Margin="10,137,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="434"/>
         <Label x:Name="CategoryLabel" Content="Category" HorizontalAlignment="Left" Margin="115,66,0,0" VerticalAlignment="Top" Width="70"/>
         <ComboBox x:Name="CategoryCombo" HorizontalAlignment="Left" Margin="202,70,0,0" VerticalAlignment="Top" Width="240"/>
-        <TextBox x:Name="AddedPriceTextBox" HorizontalAlignment="Left" Height="23" Margin="202,42,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="240"/>
+        <TextBox x:Name="PriceTextBox" HorizontalAlignment="Left" Height="23" Margin="202,42,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="240"/>
         <Button x:Name="OKButton" Content="OK" HorizontalAlignment="Left" Margin="11,219,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.266,-0.021" Click="OKButton_Click"/>
         <Button x:Name="CancelButton" Content="Cancel" HorizontalAlignment="Left" Margin="91,219,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.266,-0.021" Click="CancelButton_Click"/>
         <Label x:Name="ItemsCountLabel" Content="Items Count" HorizontalAlignment="Left" Margin="117,92,0,0" VerticalAlignment="Top" Width="80"/>

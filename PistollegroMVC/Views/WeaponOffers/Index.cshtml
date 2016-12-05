@@ -1,12 +1,13 @@
-﻿@model IEnumerable<PistollegroMVC.PistollegroWCF.WeaponOfferMV >
+﻿@model IEnumerable<PistollegroMVC.PistollegroWCF.WeaponOfferMV>
 
 @{
     ViewBag.Title = "Index";
 }
 
 <p>
-    @if (Request.IsAuthenticated) { 
-    @Html.ActionLink("Create New", "Create")
+    @if (Request.IsAuthenticated)
+    {
+        @Html.ActionLink("Create New", "Create")
     }
 </p>
 <table class="table">
@@ -18,7 +19,7 @@
             @Html.ActionLink("Price", "Index", new { sortOrder = ViewBag.PriceSortParam })
         </th>
         <th>
-            
+
             @Html.ActionLink("Name", "Index", new { sortOrder = ViewBag.NameSortParam })
         </th>
         <th>
@@ -30,28 +31,30 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @if (item.HasPicture)
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @if (item.HasPicture)
+                {
+                    <a href="~/@(ViewBag.picturesDirectory)/@(item.ID).png">
+                        <img src="~/@(ViewBag.picturesDirectory)/@(item.ID)@(ViewBag.thumbmailSuffix).png" />
+                    </a>
+}
+                else
+                {
+                    <img src="~/@(ViewBag.picturesDirectory)/@(ViewBag.defaultPicture)" />
+}
+            </td>
+            <td>
+                @if (Request.IsAuthenticated)
             {
-                <a href="~/@(ViewBag.picturesDirectory)/@(item.ID).png" >
-                <img src="~/@(ViewBag.picturesDirectory)/@(item.ID)@(ViewBag.thumbmailSuffix).png" />
-                </a>
-            }
-            else
-            {
-                <img src="~/@(ViewBag.picturesDirectory)/@(ViewBag.defaultPicture)" />
-            }
-        </td>
-        <td>@if (Request.IsAuthenticated)
-            {
-                if (User.Identity.Name.Equals(item.OrganizationName)) 
-                { 
+                if (User.Identity.Name.Equals(item.OrganizationName))
+                {
                     @Html.DisplayFor(modelItem => item.Price)
-        }
-        }
-          
+}
+            }
+
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Name)
@@ -63,17 +66,18 @@
             @Html.DisplayFor(modelItem => item.CategoryName)
         </td>
 
-        <td>@if (Request.IsAuthenticated)
+        <td>
+            @if (Request.IsAuthenticated)
+        {
+            if (User.Identity.Name.Equals(item.OrganizationName))
             {
-                if (User.Identity.Name.Equals(item.OrganizationName))
-                {
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID })
-          <text> | </text>
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
-            }
-            }
-        </td>
-    </tr>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ID })
+                <text> | </text>
+                @Html.ActionLink("Delete", "Delete", new { id = item.ID })
 }
+        }
+    </td>
+</tr>
+    }
 
 </table>

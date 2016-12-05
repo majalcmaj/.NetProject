@@ -441,6 +441,144 @@ namespace PistollegroWCF
 			};
 		}
 
+		public void EditOnSale(WeaponOnSaleMV onSale)
+		{
+			var managed = db.WeaponsOnSale.Find(onSale.ID);
+			managed.Name = onSale.Name;
+			managed.Price = onSale.Price;
+			if (managed.CategoryName != onSale.CategoryName)
+			{
+				managed.CategoryName = onSale.CategoryName;
+				managed.WeaponCategory = db.WeaponCategories.Find(managed.CategoryName);
+			}
+			managed.Description = onSale.Description;
+			managed.CountAvailable = onSale.ItemsAvailableCount;
+			db.Entry(managed).State = EntityState.Modified;
+			db.SaveChanges();
+		}
+
+		public void OrderMore(int onSaleId, int? orderCount)
+		{
+			if (orderCount != null && orderCount > 0)
+			{
+				ShipmentOrder so = new ShipmentOrder()
+				{
+					Count = (int)orderCount,
+					OnSaleId = onSaleId,
+					WeaponOnSale = db.WeaponsOnSale.Find(onSaleId)
+				};
+				db.ShipmentOrders.Add(so);
+				db.SaveChanges();
+			}
+		}
+
+		public void DeleteFromSaleById(int onSaleId)
+		{
+			var onSale = db.WeaponsOnSale.Attach(new WeaponOnSale() { ID = onSaleId });
+			db.WeaponsOnSale.Remove(onSale);
+			db.SaveChanges();
+		}
+
+		public ShipmentOrderMV[] GetShipmentsForCompany(String CompanyName)
+		{
+			return db.ShipmentOrders
+				.Where(x => x.WeaponOnSale.OrganizationName == CompanyName)
+				.Select(x => new ShipmentOrderMV()
+				{
+					Count = x.Count,
+					ID = x.ID,
+					WeaponOnSale = new WeaponOnSaleMV()
+					{
+						ID = x.WeaponOnSale.ID,
+						Price = x.WeaponOnSale.Price,
+						Name = x.WeaponOnSale.Name,
+						Description = x.WeaponOnSale.Description,
+						HasPicture = x.WeaponOnSale.HasPicture,
+						CategoryName = x.WeaponOnSale.CategoryName,
+						OrganizationName = x.WeaponOnSale.OrganizationName,
+						ItemsAvailableCount = x.WeaponOnSale.CountAvailable
+					},
+				})
+				.ToArray();
+		}
+
+		public void FulfillShipment(string CompanyName, int shipmentId)
+		{
+			var shipment = db.ShipmentOrders
+				.Find(shipmentId);
+			if (shipment != null)
+			{
+				var weaponOnSale = shipment.WeaponOnSale;
+				if (weaponOnSale.OrganizationName == CompanyName)
+				{
+					//var weaponOnSale = db.WeaponsOnSale.Attach(new WeaponOnSale()
+					//{
+					//	CountAvailable = shipment.WeaponOnSale.CountAvailable + shipment.Count,
+					//	ID = shipment.WeaponOnSale.ID
+					//});
+					db.Entry(weaponOnSale).Reference(x => x.WeaponCategory).Load();
+					db.Entry(weaponOnSale).Reference(x => x.Company).Load();
+					weaponOnSale.CountAvailable += shipment.Count;
+					db.Entry(weaponOnSale).Property(x => x.CountAvailable).IsModified = true;
+					db.ShipmentOrders.Remove(shipment);
+					db.SaveChanges();
+				}
+			}
+		}
+
+		public ShipmentOrderMV[] GetAllShipments()
+		{
+			return db.ShipmentOrders
+				.Select(x => new ShipmentOrderMV()
+				{
+					Count = x.Count,
+					ID = x.ID,
+					WeaponOnSale = new WeaponOnSaleMV()
+					{
+						ID = x.WeaponOnSale.ID,
+						Price = x.WeaponOnSale.Price,
+						Name = x.WeaponOnSale.Name,
+						Description = x.WeaponOnSale.Description,
+						HasPicture = x.WeaponOnSale.HasPicture,
+						CategoryName = x.WeaponOnSale.CategoryName,
+						OrganizationName = x.WeaponOnSale.OrganizationName,
+						ItemsAvailableCount = x.WeaponOnSale.CountAvailable
+					},
+				})
+				.ToArray();
+		}
+
+		public void DeleteShipmentOfferById(int shipmentOfferId)
+		{
+			try
+			{
+				var shipmentOrder = db.ShipmentOrders.Attach(new ShipmentOrder() { ID = shipmentOfferId });
+				db.ShipmentOrders.Remove(shipmentOrder);
+				db.SaveChanges();
+			}
+			catch (Exception e)
+			{
+				//TODO
+			}
+		}
+
+		public WeaponOnSaleMV[] GetOnSaleOfCompany(string companyName)
+		{
+			return db.WeaponsOnSale
+				.Where(x => x.Company.OrganizationName == companyName)
+							.Select(x => new WeaponOnSaleMV()
+							{
+								ID = x.ID,
+								Price = x.Price,
+								Name = x.Name,
+								Description = x.Description,
+								HasPicture = x.HasPicture,
+								CategoryName = x.CategoryName,
+								OrganizationName = x.OrganizationName,
+								ItemsAvailableCount = x.CountAvailable
+							}).ToArray();
+		}
+
 		~DbConnectionService()
 		{
 			db.Dispose();

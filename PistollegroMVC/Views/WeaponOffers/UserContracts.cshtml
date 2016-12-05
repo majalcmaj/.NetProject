@@ -1,0 +1,56 @@
+﻿@model IEnumerable<PistollegroMVC.PistollegroWCF.WeaponOnSaleMV>
+
+@{
+    ViewBag.Title = "Index";
+}
+<table class="table">
+    <tr>
+        <th>
+            Picture
+        </th>
+        <th>
+            Name
+        </th>
+        <th>
+            ID
+        </th>
+        <th>
+            Description
+        </th>
+        <th>
+            Category
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @if (item.HasPicture)
+                {
+                    <a href="~/@(ViewBag.picturesDirectory)/@(item.ID).png">
+                        <img src="~/@(ViewBag.picturesDirectory)/@(item.ID)@(ViewBag.thumbmailSuffix).png" />
+                    </a>
+                }
+                else
+                {
+                    <img src="~/@(ViewBag.picturesDirectory)/@(ViewBag.defaultPicture)" />
+                }
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CategoryName)
+            </td>
+        </tr>
+    }
+
+</table>

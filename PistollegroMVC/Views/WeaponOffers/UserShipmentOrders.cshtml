@@ -1,0 +1,36 @@
+﻿@model IEnumerable<PistollegroMVC.PistollegroWCF.ShipmentOrderMV>
+
+@{
+    ViewBag.Title = "Shipment Orders";
+}
+<table class="table">
+    <tr>
+        <th>
+            Item ID
+        </th>
+        <th>
+            Item Name
+        </th>
+        <th>
+            Ordered Count
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.WeaponOnSale.ID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WeaponOnSale.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Count)
+            </td>
+            <td>
+                @Html.ActionLink("Fulfill Order", "FulfillOrder", new { id = item.ID })
+            </td>
+        </tr>
+    }
+</table>

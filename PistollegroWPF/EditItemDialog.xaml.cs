@@ -43,6 +43,7 @@ namespace PistollegroWPF
 			CategoryCombo.ItemsSource = service.GetCategories();
 			CategoryCombo.SelectedItem = ItemOnSale.Category;
 			DescriptionTextBox.Text = ItemOnSale.Description;
+			PriceTextBox.Text = ItemOnSale.Price.ToString();
 			ItemsCountTextBox.Text = ItemOnSale.ItemsAvailableCount.ToString();
 		}
 

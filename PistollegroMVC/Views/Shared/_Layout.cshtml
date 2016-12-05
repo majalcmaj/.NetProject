@@ -23,7 +23,8 @@
                 <ul class="nav navbar-nav">
                     @if (Request.IsAuthenticated) { 
                     <li>@Html.ActionLink("Manage your offers", "UserOffers", "WeaponOffers")</li>
-                    
+                    <li>@Html.ActionLink("View Your Contracts", "UserContracts", "WeaponOffers")</li>
+                    <li>@Html.ActionLink("Manage Shipment Orders", "UserShipmentOrders", "WeaponOffers")</li>
                     }
                 </ul>
                 @Html.Partial("_LoginPartial")

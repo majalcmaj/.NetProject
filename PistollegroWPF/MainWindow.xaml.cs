@@ -60,7 +60,45 @@ namespace PistollegroWPF
 			get { return String.Format(ServerPath, OnSale.ID); }
 			set { /* Do Nothing */}
 		}
+	}
 
+	public class ShipmentOrderPresenter
+	{
+		private ShipmentOrderMV ShipmntOrder;
+		public ShipmentOrderPresenter(ShipmentOrderMV shipmentOrder)
+		{
+			this.ShipmntOrder = shipmentOrder;
+		}
+
+		public int ItemID
+		{
+			get
+			{
+				return ShipmntOrder.WeaponOnSale.ID;
+			}
+		}
+		public String Name
+		{
+			get
+			{
+				return ShipmntOrder.WeaponOnSale.Name;
+			}
+		}
+		public int OrderedItemsCount
+		{
+			get
+			{
+				return ShipmntOrder.Count;
+			}
+		}
+
+		public ShipmentOrderMV ShipmentOrder
+		{
+			get
+			{
+				return ShipmntOrder;
+			}
+		}
 	}
 	public partial class MainWindow : Window
 	{
@@ -68,7 +106,6 @@ namespace PistollegroWPF
 		public MainWindow()
 		{
 			InitializeComponent();
-			LoadOffers();
 		}
 
 		private void LoadOffers()
@@ -85,6 +122,14 @@ namespace PistollegroWPF
 			var onSale = service.GetAllOnSale(null);
 			foreach (var item in onSale)
 				ItemsOnSale.Items.Add(new ItemOnSalePresenter(item));
+		}
+
+		private void LoadShipmentOffers()
+		{
+			ShipmentOrders.Items.Clear();
+			var shipmentOffers = service.GetAllShipments();
+			foreach (var item in shipmentOffers)
+				ShipmentOrders.Items.Add(new ShipmentOrderPresenter(item));
 		}
 
 		private void AcceptOfferButton_Click(object sender, RoutedEventArgs e)
@@ -120,22 +165,23 @@ namespace PistollegroWPF
 		private void DeleteItems_Click(object sender, RoutedEventArgs e)
 		{
 			var itemSelected = (ItemOnSalePresenter)ItemsOnSale.SelectedItem;
-			if(itemSelected != null)
+			if (itemSelected != null)
 			{
-				//service.DeleteFromSaleById(itemSelected.OnSale.ID);
+				service.DeleteFromSaleById(itemSelected.OnSale.ID);
 			}
 		}
 
 		private void OrderMore_Click(object sender, RoutedEventArgs e)
 		{
 			var itemSelected = (ItemOnSalePresenter)ItemsOnSale.SelectedItem;
-			if(itemSelected != null) { 
+			if (itemSelected != null)
+			{
 				OrderItemsDialog aod = new OrderItemsDialog(itemSelected.Name);
 				aod.ShowDialog();
 				if (aod.IsAccepted)
 				{
 					int? orderCount = aod.OrderCount;
-					//service.ApplyWeaponOffer(offerToAccept.WeaponOffer.ID);
+					service.OrderMore(itemSelected.OnSale.ID, orderCount);
 					LoadOnSale();
 				}
 			}
@@ -150,9 +196,40 @@ namespace PistollegroWPF
 				eid.ShowDialog();
 				if (eid.IsAccepted)
 				{
-					//service.EditOnSale(itemSelected.OnSale);
+					service.EditOnSale(itemSelected.OnSale);
 					LoadOffers();
 				}
+			}
+		}
+
+		private void DeleteShipment_Click(object sender, RoutedEventArgs e)
+		{
+			var itemSelected = (ShipmentOrderPresenter)ShipmentOrders.SelectedItem;
+			if (itemSelected != null)
+			{
+				service.DeleteShipmentOfferById(itemSelected.ShipmentOrder.ID);
+				LoadShipmentOffers();
+			}
+		}
+
+		private void tabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
+		{
+			if (e.Source is TabControl)
+			{
+				var item = ((TabControl)e.Source).SelectedItem;
+				if (item == WeaponOffersTab)
+				{
+					LoadOffers();
+				}
+				else if (item == OnSaleTab)
+				{
+					LoadOnSale();
+				}
+				else if (item == ShipmentTab)
+				{
+					LoadShipmentOffers();
+				}
+				e.Handled = true;
 			}
 		}
 	}

@@ -59,6 +59,7 @@
   <ItemGroup>
     <Compile Include="Entities\Company.cs" />
     <Compile Include="Entities\PistollegroDBContext.cs" />
+    <Compile Include="Entities\ShipmentOrder.cs" />
     <Compile Include="Entities\WeaponCategory.cs" />
     <Compile Include="Entities\WeaponInfo.cs" />
     <Compile Include="Entities\WeaponOffer.cs" />
